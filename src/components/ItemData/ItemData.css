@@ -1,0 +1,5 @@
+.list-item-data > * {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

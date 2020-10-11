@@ -2,13 +2,7 @@ import React, { useState, createRef } from 'react';
 import AnimateReorder from './components/AnimateReorder/AnimateReorder';
 import ListItem from './components/ListItem/ListItem';
 import List from './components/List/List';
-
-const defaultChores = [
-  {_id: '001', type: 'monstera'},
-  {_id: '002', type: 'cat'},
-  {_id: '003', type: 'philodendron'},
-  {_id: '004', type: 'mantis'},
-];
+import defaultChores from './default';
 
 function App() {
   const [ chores, setChores ] = useState(defaultChores)

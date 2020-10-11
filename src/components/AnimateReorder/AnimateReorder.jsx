@@ -17,7 +17,6 @@ const AnimateReorder = ({ children }) => {
     useLayoutEffect(() => {
         const prevBoundingBox = getBoundingBox(prevChildren);
         setPrevBoundingBox(prevBoundingBox)
-        console.log(prevBoundingBox)
     }, [prevChildren])
 
     // animate before re-render
