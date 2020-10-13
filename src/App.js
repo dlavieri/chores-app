@@ -3,9 +3,15 @@ import AnimateReorder from './components/AnimateReorder/AnimateReorder';
 import ListItem from './components/ListItem/ListItem';
 import List from './components/List/List';
 import defaultChores from './default';
+import './App.css';
 
 function App() {
-  const [ chores, setChores ] = useState(defaultChores)
+  function sortChores(arr) {
+    let activeArr = arr.filter(chore => chore.active === true);
+    let inactiveArr = arr.filter(chore => chore.active === false);
+    return [...activeArr, ...inactiveArr];
+  }
+  const [ chores, setChores ] = useState(sortChores(defaultChores))
 
   const handleClick = () => {
     let arr = chores.slice();

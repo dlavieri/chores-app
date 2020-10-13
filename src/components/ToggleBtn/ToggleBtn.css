@@ -1,0 +1,20 @@
+.toggle-btn {
+    height: 35px;
+    width: 35px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: background-color 150ms 200ms, transform 350ms cubic-bezier(.78,-1.22,.17,1.89)
+}
+
+.toggle-btn:hover{
+    background-color: #3cb371;
+    transform: scale(1.28);
+}
+
+.inactive .toggle-btn {
+    background: none;
+    box-shadow: none;
+    cursor: auto;
+}

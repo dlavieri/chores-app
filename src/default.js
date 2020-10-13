@@ -1,6 +1,7 @@
 let defaultChores = [
     {
         _id: '001',
+        active: true,
         category: 'Plant',
         type: 'Monstera Delicioso',
         location: 'Kitchen',
@@ -21,6 +22,7 @@ let defaultChores = [
     },
     {
         _id: '002',
+        active: true,
         category: 'Plant',
         type: 'Pink Princess Philodendron',
         location: 'Bedroom',
@@ -41,6 +43,7 @@ let defaultChores = [
     },
     {
         _id: '003',
+        active: false,
         category: 'Plant',
         type: 'Pothos',
         location: 'Bathroom',
@@ -61,6 +64,7 @@ let defaultChores = [
     },
     {
         _id: '004',
+        active: false,
         category: 'Plant',
         type: 'Alocasia Cuprea',
         location: 'Living Room',
@@ -81,6 +85,7 @@ let defaultChores = [
     },
     {
         _id: '005',
+        active: true,
         category: 'Plant',
         type: 'Rosette Succulents',
         location: 'Desk',
