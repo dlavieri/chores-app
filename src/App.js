@@ -2,8 +2,12 @@ import React, { useState, createRef } from 'react';
 import AnimateReorder from './components/AnimateReorder/AnimateReorder';
 import ListItem from './components/ListItem/ListItem';
 import List from './components/List/List';
+import AddBtn from './components/AddBtn/AddBtn';
+import Modal from './components/Modal/Modal';
 import defaultChores from './default';
+
 import reorderContext from './contexts/reorderContext';
+import modalContext from './contexts/modalContext';
 import './App.css';
 
 function App() {
@@ -13,14 +17,9 @@ function App() {
     return [...activeArr, ...inactiveArr];
   }
   const [ chores, setChores ] = useState(sortChores(defaultChores))
+  const [ modalOpen, setModalOpen ] = useState(false);
 
-  const handleClick = () => {
-    let arr = chores.slice();
-    let curr = arr.shift();
-    curr.active = false;
-    arr.push(curr);
-    setChores(arr);
-  }
+  const handleToggleModal = () => setModalOpen(!modalOpen);
 
   const handleAdd = () => {
     let add = {_id: '005', type: 'new'}
@@ -32,13 +31,14 @@ function App() {
   return (
     <div className="app">
       <reorderContext.Provider value={[chores, setChores]} >
-        <List>
-          <AnimateReorder>
-            {chores.map(chore => <ListItem key={chore._id} id={chore._id} ref={createRef()} chore={chore} />)}
-          </AnimateReorder>
-        </List>
-        <button onClick={handleClick}>Click me to reverse</button>
-        <button onClick={handleAdd}>Click to add</button>
+        <modalContext.Provider value={[modalOpen, setModalOpen]}>
+          <List>
+            <AnimateReorder>
+              {chores.map(chore => <ListItem key={chore._id} id={chore._id} ref={createRef()} chore={chore} />)}
+            </AnimateReorder>
+          </List>
+          <AddBtn openModal={handleToggleModal}/>
+        </modalContext.Provider>
       </reorderContext.Provider>
     </div>
   );
