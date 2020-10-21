@@ -5,16 +5,50 @@
     border-radius: 50%;
     box-shadow: 0 1px 3px rgba(0,0,0,0.3);
     cursor: pointer;
-    transition: background-color 150ms 200ms, transform 350ms cubic-bezier(.78,-1.22,.17,1.89)
-}
-
-.toggle-btn:hover{
-    background-color: #3cb371;
-    transform: scale(1.28);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .inactive .toggle-btn {
-    background: none;
-    box-shadow: none;
-    cursor: auto;
+    opacity: 0;
+}
+
+.toggle-btn.checked {
+    animation: 350ms cubic-bezier(.78,-1.22,.17,1.89) forwards turn-green;
+}
+.checkmark-svg.checkmark-checked {
+    animation: 350ms cubic-bezier(.78,-1.22,.17,1.89) 100ms forwards check;
+}
+
+/* Checkmark styling */
+
+.checkmark-svg {
+    fill: white;
+    transform: scale(0.5);
+    opacity: 0;
+}
+
+
+/* Animation keyframes  */
+@keyframes check {
+    from { 
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    to { 
+        transform: scale(0.8);
+        opacity: 1;
+    }
+}
+
+@keyframes turn-green {
+    from {
+        background-color: #fff;
+        transform: scale(1);
+    }
+    to {
+        background-color: #3cb371;
+        transform: scale(1.28);
+    }
 }

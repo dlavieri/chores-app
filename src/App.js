@@ -3,6 +3,7 @@ import AnimateReorder from './components/AnimateReorder/AnimateReorder';
 import ListItem from './components/ListItem/ListItem';
 import List from './components/List/List';
 import defaultChores from './default';
+import reorderContext from './contexts/reorderContext';
 import './App.css';
 
 function App() {
@@ -15,7 +16,9 @@ function App() {
 
   const handleClick = () => {
     let arr = chores.slice();
-    arr.push(arr.shift());
+    let curr = arr.shift();
+    curr.active = false;
+    arr.push(curr);
     setChores(arr);
   }
 
@@ -28,13 +31,15 @@ function App() {
 
   return (
     <div className="app">
-      <List>
-        <AnimateReorder>
-          {chores.map(chore => <ListItem key={chore._id} id={chore._id} ref={createRef()} chore={chore} />)}
-        </AnimateReorder>
-      </List>
-      <button onClick={handleClick}>Click me to reverse</button>
-      <button onClick={handleAdd}>Click to add</button>
+      <reorderContext.Provider value={[chores, setChores]} >
+        <List>
+          <AnimateReorder>
+            {chores.map(chore => <ListItem key={chore._id} id={chore._id} ref={createRef()} chore={chore} />)}
+          </AnimateReorder>
+        </List>
+        <button onClick={handleClick}>Click me to reverse</button>
+        <button onClick={handleAdd}>Click to add</button>
+      </reorderContext.Provider>
     </div>
   );
 }

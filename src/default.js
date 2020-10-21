@@ -5,7 +5,7 @@ let defaultChores = [
         category: 'Plant',
         type: 'Monstera Delicioso',
         location: 'Kitchen',
-        img: 'https://www.charlotteflowermarket.com/wp-content/uploads/2018/03/monstera_leaf-600x596.jpg',
+        img: 'https://redsquareflowers.com/wp-content/uploads/2020/08/Monstera-Deliciosa-Madison-WI-e1597250765430.png',
         water: {
             frequencyDays: 7,
             lastRecorded: null
@@ -24,9 +24,9 @@ let defaultChores = [
         _id: '002',
         active: true,
         category: 'Plant',
-        type: 'Pink Princess Philodendron',
+        type: 'Philodendron Gigantum',
         location: 'Bedroom',
-        img: 'https://cdn.shopify.com/s/files/1/2075/9641/products/C4CF30DC-B4AA-4014-AE25-36F3C62E1E52_580x.jpg?v=1590682501',
+        img: 'https://cdn11.bigcommerce.com/s-421f8/images/stencil/1920x1080/products/548/3640/Landscape_Plants_New_18__19576.1593639990.png?c=2',
         water: {
             frequencyDays: 7,
             lastRecorded: null
