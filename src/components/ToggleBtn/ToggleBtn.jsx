@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import './ToggleBtn.css';
-import Checkmark from './Check';
+import Checkmark from '../svgs/Check';
 
 const ToggleBtn = ({ handleCompleteChore, id }) => {
     const [ check, setCheck ] = useState(false);

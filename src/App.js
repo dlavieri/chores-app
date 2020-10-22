@@ -37,7 +37,8 @@ function App() {
               {chores.map(chore => <ListItem key={chore._id} id={chore._id} ref={createRef()} chore={chore} />)}
             </AnimateReorder>
           </List>
-          <AddBtn openModal={handleToggleModal}/>
+          <AddBtn handleModal={handleToggleModal} modalOpen={modalOpen}/>
+          {modalOpen && <Modal open={modalOpen} />}
         </modalContext.Provider>
       </reorderContext.Provider>
     </div>

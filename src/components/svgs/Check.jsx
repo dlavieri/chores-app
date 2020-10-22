@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import './ToggleBtn.css';
 
 const Checkmark = ({ checked }) => {
     const checkmarkClass = classNames({

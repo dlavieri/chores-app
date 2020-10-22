@@ -1,0 +1,23 @@
+.add-btn {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+.add-btn.close-modal {
+    background-color: #696969;
+}
+
+.plus, .down-arrow {
+    fill: #fff;
+}
