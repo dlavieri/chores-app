@@ -12,21 +12,14 @@ import './App.css';
 
 function App() {
   function sortChores(arr) {
-    let activeArr = arr.filter(chore => chore.active === true);
-    let inactiveArr = arr.filter(chore => chore.active === false);
+    let activeArr = arr.filter(chore => chore._active === true);
+    let inactiveArr = arr.filter(chore => chore._active === false);
     return [...activeArr, ...inactiveArr];
   }
   const [ chores, setChores ] = useState(sortChores(defaultChores))
   const [ modalOpen, setModalOpen ] = useState(false);
 
   const handleToggleModal = () => setModalOpen(!modalOpen);
-
-  const handleAdd = () => {
-    let add = {_id: '005', type: 'new'}
-    let arr = chores.slice();
-    arr.unshift(add);
-    setChores(arr);
-  }
 
   return (
     <div className="app">
@@ -38,7 +31,7 @@ function App() {
             </AnimateReorder>
           </List>
           <AddBtn handleModal={handleToggleModal} modalOpen={modalOpen}/>
-          {modalOpen && <Modal open={modalOpen} />}
+          <Modal modalOpen={modalOpen} />
         </modalContext.Provider>
       </reorderContext.Provider>
     </div>

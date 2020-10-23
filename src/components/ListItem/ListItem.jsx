@@ -16,7 +16,7 @@ const ListItem = forwardRef(({ chore }, ref) => {
         for (let i=0; i < arr.length; i++) {
             if (arr[i]._id === id) {
                 completed = arr.splice(i,1)[0];
-                completed.active = false;
+                completed._active = false;
                 break;
             }
         }
@@ -26,13 +26,13 @@ const ListItem = forwardRef(({ chore }, ref) => {
 
     const itemClass = classNames({
         'list-item': true,
-        'active': chore.active,
-        'inactive': !chore.active
+        'active': chore._active,
+        'inactive': !chore._active
     });
     return (
         <li className={itemClass} ref={ref}>
-            <ImgBubble img={chore.img} type={chore.type} />
-            <ItemData type={chore.type} location={chore.location} category={chore.category} />
+            <ImgBubble img={chore._img} type={chore._type} />
+            <ItemData type={chore._type} location={chore._location} category={chore._category} />
             <ToggleBtn handleCompleteChore={handleCompleteChore} id={chore._id}/>
         </li>
     )

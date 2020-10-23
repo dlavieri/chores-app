@@ -15,8 +15,32 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    bottom: 0;
+    right: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    width: 100%;
+    height: 100%;
     background-color: #000;
     opacity: 0.2;
+}
+
+/* ANIMATION */
+.css-modal-enter {
+    transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform: translate(-50%, -70%);
+    opacity: 0;
+}
+.css-modal-enter-active {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+.css-modal-exit {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+.css-modal-exit-active {
+    transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    opacity: 0;
+    transform: translate(-50%, -70%);
 }
