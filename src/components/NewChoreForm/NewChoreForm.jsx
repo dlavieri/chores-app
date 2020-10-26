@@ -1,4 +1,4 @@
-import React, { useRef, useState, useContext } from 'react';
+import React, { useRef, useState, useContext, useEffect } from 'react';
 import TextInput from '../TextInput/TextInput';
 import Button from '../Button/Button';
 import Modal from '../Modal/Modal';
@@ -13,6 +13,10 @@ const NewChoreForm = ({ modalOpen }) => {
     const typeRef = useRef(null);
     const locationRef = useRef(null);
     const waterRef = useRef(null);
+
+    useEffect(() => {
+        if (modalOpen) typeRef.current.focus();
+    }, [modalOpen])
 
     const handleSubmit = (e) => {
         e.preventDefault();
