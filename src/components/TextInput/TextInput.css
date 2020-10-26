@@ -6,25 +6,59 @@
 
 .text-input-label {
     position: absolute;
-    font-size: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
     left: 10px;
-    transition: all 150ms ease-in-out; 
+    transform: translateY(-50%);
+    color: #5e5e5e;
+    background: #fff;
+    padding: 1px 8px;
 }
 
 .text-input {
     height: 60px;
     width: 100%;
     padding-left: 10px;
+    border-radius: 8px;
+    border: 1px solid #c2c2c2;
+}
+.text-input:focus {
+    outline: none;
+    border: none;
+    box-shadow: #c2c2c2 1px 1px 5px;
 }
 
-.text-input-label.active {
+
+.input-label-enter {
+    transition: all 250ms ease-in-out;
+    top: 50%;
+    opacity: 0;
+    font-size: 1rem;
+}
+.input-label-enter-active {
     top: 0;
-    background: #fff;
-    padding: 1px 3px;
-    font-size: 0.3rem;
-    color: rgb(211, 57, 57);
+    opacity: 1;
+    font-size: 0.6em;
+}
+.input-label-enter-done {
+    top: 0;
+    opacity: 1;
+    font-size: 0.6em;
+}
+.input-label-exit {
+    top: 0;
+    opacity: 1;
+    font-size: 0.4em;
+}
+.input-label-exit-active {
+    transition: all 250ms ease-in-out;
+    top: 50%;
+    opacity: 0;
+    font-size: 1rem;
+}
+.input-label-exit-active {
+    transition: all 150ms ease-in-out;
+    top: 50%;
+    opacity: 0;
+    font-size: 1rem;
 }
 
 @media only screen and (max-width: 500px) {

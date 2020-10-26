@@ -1,4 +1,4 @@
-import React, { createRef, useState, useContext } from 'react';
+import React, { useRef, useState, useContext } from 'react';
 import TextInput from '../TextInput/TextInput';
 import Button from '../Button/Button';
 import Modal from '../Modal/Modal';
@@ -9,6 +9,10 @@ const NewChoreForm = ({ modalOpen }) => {
     const [ location, setLocation ] = useState('');
     const [ waterFreq, setWaterFreq ] = useState(null);
     const [ chores, setChores ] = useContext(reorderContext);
+
+    const typeRef = useRef(null);
+    const locationRef = useRef(null);
+    const waterRef = useRef(null);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -38,16 +42,19 @@ const NewChoreForm = ({ modalOpen }) => {
         <Modal modalOpen={modalOpen}>
             <form className="form-control new-chore-form">
                 <TextInput 
+                    ref={typeRef}
                     name="Plant Type" 
                     label="plantType" 
                     placeholder="What type of plant is it?" 
                     handleChange={(e) => setType(e.target.value)} />
                 <TextInput 
+                    ref={locationRef}
                     name="Location" 
                     label="location" 
                     placeholder="Where is it?" 
                     handleChange={(e) => setLocation(e.target.value)} />
                 <TextInput 
+                    ref={waterRef}
                     name="Water Frequency" 
                     label="waterFrequency" 
                     placeholder="How often does it need water?" 
