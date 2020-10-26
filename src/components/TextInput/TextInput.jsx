@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
+import './TextInput.css';
 
-const TextInput = (props) => {
+const TextInput = forwardRef(({
+    name,
+    label,
+    placeholder,
+    handleChange
+}, ref) => {
     return (
-        <div className="form-input">
-            <label htmlFor={props.label}>{props.name}</label>
+        <div className="form-input" ref={ref}>
+            <label className="text-input-label" htmlFor={label}>{name}</label>
             <input 
-                name={props.label} 
+                name={label} 
+                className="text-input"
                 type="text" 
-                placeholder={props.placeholder} 
-                onChange={props.handleChange}></input>
+                placeholder={placeholder} 
+                onChange={handleChange}></input>
         </div>
     )
-}
+})
 
 export default TextInput;

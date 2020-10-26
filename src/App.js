@@ -3,7 +3,7 @@ import AnimateReorder from './components/AnimateReorder/AnimateReorder';
 import ListItem from './components/ListItem/ListItem';
 import List from './components/List/List';
 import AddBtn from './components/AddBtn/AddBtn';
-import Modal from './components/Modal/Modal';
+import NewChoreForm from './components/NewChoreForm/NewChoreForm';
 import defaultChores from './default';
 
 import reorderContext from './contexts/reorderContext';
@@ -31,7 +31,7 @@ function App() {
             </AnimateReorder>
           </List>
           <AddBtn handleModal={handleToggleModal} modalOpen={modalOpen}/>
-          <Modal modalOpen={modalOpen} />
+          <NewChoreForm modalOpen={modalOpen} />
         </modalContext.Provider>
       </reorderContext.Provider>
     </div>

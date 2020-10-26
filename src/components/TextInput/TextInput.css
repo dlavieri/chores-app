@@ -1,0 +1,36 @@
+.form-input {
+    width: 100%;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.text-input-label {
+    position: absolute;
+    font-size: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    transition: all 150ms ease-in-out; 
+}
+
+.text-input {
+    height: 60px;
+    width: 100%;
+    padding-left: 10px;
+}
+
+.text-input-label.active {
+    top: 0;
+    background: #fff;
+    padding: 1px 3px;
+    font-size: 0.3rem;
+    color: rgb(211, 57, 57);
+}
+
+@media only screen and (max-width: 500px) {
+    .form-input {
+        flex-direction: column;
+    }
+
+
+}
