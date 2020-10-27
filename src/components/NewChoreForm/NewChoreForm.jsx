@@ -3,6 +3,7 @@ import TextInput from '../TextInput/TextInput';
 import Button from '../Button/Button';
 import Modal from '../Modal/Modal';
 import reorderContext from '../../contexts/reorderContext';
+import './NewChoreForm.css'
 
 const NewChoreForm = ({ modalOpen }) => {
     const [ type, setType ] = useState('');

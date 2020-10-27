@@ -23,7 +23,6 @@ const Modal = ({ children }) => {
             listBody.style.filter = "";
             body.style.top = "";
             window.scrollTo(0, parseInt(scrollY || '0') * -1);
-            console.log('cleanup')
         }
 
         if (modalOpen) {
