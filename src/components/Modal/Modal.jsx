@@ -1,10 +1,14 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import './Modal.css';
 import modalContext from '../../contexts/modalContext';
+import useOnClickOutside from '../../hooks/useOnClickOutside';
 
 const Modal = ({ children }) => {
     const [ modalOpen, setModalOpen ] = useContext(modalContext);
+    const modalRef = useRef(null);
+
+    useOnClickOutside(modalRef, () => setModalOpen(false))
 
     useEffect(() => {
         function preventScroll() {
@@ -37,7 +41,7 @@ const Modal = ({ children }) => {
             timeout={1000}
             unmountOnExit
             classNames="css-modal">
-            <div className="modal" id="modal">
+            <div className="modal" id="modal" ref={modalRef}>
                 {children}
             </div>
         </CSSTransition>

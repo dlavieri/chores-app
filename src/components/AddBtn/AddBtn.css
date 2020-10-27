@@ -14,10 +14,6 @@
     z-index: 100;
 }
 
-.add-btn.close-modal {
-    background-color: #696969;
-    z-index: 100;
-}
 
 .plus, .down-arrow {
     fill: #fff;

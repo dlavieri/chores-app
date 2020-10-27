@@ -4,10 +4,9 @@ import DownArrow from '../svgs/DownArrow';
 import './AddBtn.css';
 
 const AddBtn = ({ handleModal, modalOpen }) => {
-    if (modalOpen) {
-        return <div className="add-btn close-modal" onClick={handleModal}><DownArrow /></div>
-    }
-    return <div className="add-btn" onClick={handleModal}><Plus /></div>
+    if (!modalOpen) {
+        return <div className="add-btn" onClick={handleModal}><Plus /></div>
+    } else return null
 }
 
 export default AddBtn;
