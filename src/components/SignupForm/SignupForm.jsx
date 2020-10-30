@@ -1,30 +1,34 @@
 import React, { useState, useContext, useRef, useEffect } from 'react';
+import './SignupForm.css';
 import Modal from '../Modal/Modal';
-import loginModalContext from '../../contexts/loginModalContext';
+import '../../contexts/signupModalContext';
+import signupModalContext from '../../contexts/signupModalContext';
 import Button from '../Button/Button';
 import TextInput from '../TextInput/TextInput';
 
-const LoginForm = () => {
+const SignupForm = (props) => {
     const [ email, setEmail ] = useState(null);
     const [ password, setPassword ] = useState(null);
-    const [ loginOpen, setLoginOpen ] = useContext(loginModalContext);
+    const [ passMatch, setPassMatch ] = useState(null);
+    const [ signupOpen, setSignupOpen ] = useContext(signupModalContext)
 
     const emailRef = useRef(null);
     const passRef = useRef(null);
+    const passMatchRef = useRef(null);
 
     useEffect(() => {
-        if(loginOpen) {
+        if (signupOpen) {
             emailRef.current.focus();
         }
-    }, [loginOpen])
+    }, [signupOpen])
 
-    const handleLogin = (e) => {
+    const handleSignup = (e) => {
         e.preventDefault();
     }
 
     return (
-        <Modal modalOpen={loginOpen} setModalOpen={setLoginOpen}>
-            <div className="login-form form-control">
+        <Modal modalOpen={signupOpen} setModalOpen={setSignupOpen}>
+            <div className="signup-form form-control">
                 <TextInput
                     ref={emailRef}
                     name="Email" 
@@ -37,10 +41,16 @@ const LoginForm = () => {
                     label="loginPassword" 
                     placeholder="Password" 
                     handleChange={(e) => setPassword(e.target.value)} />
-                <Button onClick={handleLogin}>Login</Button>
+                <TextInput
+                    ref={passMatchRef}
+                    name="Confirm Password" 
+                    label="signupConfirmPassword" 
+                    placeholder="Confirm Password" 
+                    handleChange={(e) => setPassMatch(e.target.value)} />
+                <Button>Signup</Button>
             </div>
         </Modal>
     )
-};
+}
 
-export default LoginForm;
+export default SignupForm;

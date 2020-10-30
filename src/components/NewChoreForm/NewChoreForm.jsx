@@ -3,13 +3,14 @@ import TextInput from '../TextInput/TextInput';
 import Button from '../Button/Button';
 import Modal from '../Modal/Modal';
 import reorderContext from '../../contexts/reorderContext';
-import './NewChoreForm.css'
+import modalContext from '../../contexts/modalContext';
 
-const NewChoreForm = ({ modalOpen }) => {
+const NewChoreForm = (props) => {
     const [ type, setType ] = useState('');
     const [ location, setLocation ] = useState('');
     const [ waterFreq, setWaterFreq ] = useState(null);
     const [ chores, setChores ] = useContext(reorderContext);
+    const [ modalOpen, setModalOpen ] = useContext(modalContext);
 
     const typeRef = useRef(null);
     const locationRef = useRef(null);
@@ -44,7 +45,7 @@ const NewChoreForm = ({ modalOpen }) => {
     }
 
     return (
-        <Modal modalOpen={modalOpen}>
+        <Modal modalOpen={modalOpen} setModalOpen={setModalOpen}>
             <form className="form-control new-chore-form">
                 <TextInput 
                     ref={typeRef}

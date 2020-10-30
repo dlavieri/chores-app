@@ -1,0 +1,15 @@
+.body, .head {
+    position: absolute;
+    left: 0;
+    width: 100%;
+}
+.body {
+    overflow-y: scroll;
+    top: 80px;
+    padding-top: 20px;
+}
+
+.head {
+    top: 0;
+    height: 80px;
+}

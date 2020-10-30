@@ -4,8 +4,7 @@ import './Modal.css';
 import modalContext from '../../contexts/modalContext';
 import useOnClickOutside from '../../hooks/useOnClickOutside';
 
-const Modal = ({ children }) => {
-    const [ modalOpen, setModalOpen ] = useContext(modalContext);
+const Modal = ({ children, modalOpen, setModalOpen }) => {
     const modalRef = useRef(null);
 
     useOnClickOutside(modalRef, () => setModalOpen(false))

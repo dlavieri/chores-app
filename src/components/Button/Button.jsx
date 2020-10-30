@@ -1,10 +1,14 @@
 import React from 'react';
 import './Button.css';
 
-const Button = (props) => {
+const Button = ({
+    handleClick,
+    children
+}) => {
+
     return (
-        <button className="button" onClick={props.handleClick}>
-            {props.children}
+        <button className="button" onClick={handleClick}>
+            {children}
         </button>
     )
 }

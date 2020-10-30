@@ -7,3 +7,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.data-type {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+}

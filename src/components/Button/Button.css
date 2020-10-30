@@ -16,17 +16,19 @@
     content: "";
     z-index: -1;
     position: absolute;
-    background: linear-gradient(to right, rgb(1, 104, 1), rgb(1, 182, 1));
+    background: rgb(1, 182, 1);
     top: 0;
     left: 0;
     height: 100%;
-    width: 0px;
+    width: 100%;
+    transform: scaleX(0);
     opacity: 0;
+    transform-origin: 50% 50%;
     transition: all 400ms ease-in-out;
 }
 
 .button:hover:before, .button:focus:before, .button:active:before {
-    width: 100%;
+    transform: scaleX(1);
     opacity: 1;
 }
 .button:hover {
