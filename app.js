@@ -3,19 +3,52 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const { graphqlHTTP } = require('express-graphql');
 const { buildSchema } = require('graphql');
+const routes = require('./routes/routes');
+
+const db = require('./db/db');
+const User = require('./models/users');
+const Plant = require('./models/plants');
 
 const PORT = process.env.PORT || 8080;
 
 const app = express();
+
+const schema = buildSchema(`
+    type Query {
+        hello: String
+    }
+`);
+
+const root = {
+    hello: () => {
+        return 'Hello World!';
+    }
+};
+
+app.use('/graphql', graphqlHTTP({
+    schema: schema,
+    rootValue: root,
+    graphiql: true
+}))
+
 app.use(bodyParser.json());
+
+app.use(routes);
 
 if (process.env.NODE_ENV === "production") {
     // serve static files
-    app.use(express.static(path.join(__dirname, 'clinet/build')));
+    app.use(express.static(path.join(__dirname, 'client/build')));
     // handle react routing, return all requests to react app
     app.get('*', (req, res) => {
         res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
     })
 }
 
-app.listen(PORT, () => console.log('listening on PORT ' + PORT))
+Plant.belongsTo(User);
+User.hasMany(Plant, { constraints: true, onDelete: "CASCADE" });
+
+db.sync({force: true})
+    .then(() => {
+        app.listen(PORT, () => console.log('listening on PORT ' + PORT))
+    })
+    .catch(err => console.log(err))
