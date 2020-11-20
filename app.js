@@ -1,35 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const { graphqlHTTP } = require('express-graphql');
-const { buildSchema } = require('graphql');
 const routes = require('./routes/routes');
 
 const db = require('./db/db');
 const User = require('./models/users');
 const Plant = require('./models/plants');
+const PlantType = require('./models/plant-types');
 
 const PORT = process.env.PORT || 8080;
 
 const app = express();
-
-const schema = buildSchema(`
-    type Query {
-        hello: String
-    }
-`);
-
-const root = {
-    hello: () => {
-        return 'Hello World!';
-    }
-};
-
-app.use('/graphql', graphqlHTTP({
-    schema: schema,
-    rootValue: root,
-    graphiql: true
-}))
 
 app.use(bodyParser.json());
 
@@ -46,6 +27,7 @@ if (process.env.NODE_ENV === "production") {
 
 Plant.belongsTo(User);
 User.hasMany(Plant, { constraints: true, onDelete: "CASCADE" });
+Plant.belongsTo(PlantType);
 
 db.sync({force: true})
     .then(() => {

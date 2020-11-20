@@ -1,0 +1,15 @@
+.spinner-container {
+    position: relative;
+}
+
+.spinner {
+    position: absolute;
+    border-radius: 50%;
+    transition: 2s;
+    animation: fade 1.2s infinite ease-in-out;
+}
+
+@keyframes fade {
+    50% { opacity: 0.3 }
+    100% { opacity: 1 }
+}

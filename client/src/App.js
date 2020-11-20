@@ -10,6 +10,7 @@ import SignupForm from './components/SignupForm/SignupForm';
 import Header from './components/Header/Header';
 import Body from './components/Layouts/Body';
 import Head from './components/Layouts/Head';
+import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner'
 
 import reorderContext from './contexts/reorderContext';
 import modalContext from './contexts/modalContext';
