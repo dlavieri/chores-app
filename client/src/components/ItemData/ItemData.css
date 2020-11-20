@@ -13,3 +13,16 @@
     font-weight: bold;
     margin: 0 0 5px 0;
 }
+
+.view-details-btn {
+    background: none;
+    border: none;
+    text-decoration: underline;
+    padding: 0;
+    margin: 5px 0 0 0;
+    color: inherit;
+    cursor: pointer;
+}
+.view-details-btn:hover {
+    color: green;
+}

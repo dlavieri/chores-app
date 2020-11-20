@@ -7,6 +7,7 @@ const ItemData = ({type, location, category}) => {
         <div className="list-item-data">
             <div className="data-type">{type}</div>
             <div className="data-location">{location}</div>
+            <button className="view-details-btn">View Details</button>
         </div>
     )
 }
