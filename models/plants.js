@@ -24,10 +24,6 @@ const Plant = sequelize.define('plant', {
     _location: {
         type: Sequelize.STRING,
     },
-    _water: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-    },
     _lastWatered: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW,
